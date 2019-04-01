@@ -1,0 +1,34 @@
+{
+    "name": "awes-io/installer",
+    "description": "AwesIO application installer.",
+    "keywords": ["laravel", "awes-io"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Awescode GmbH",
+            "email": "info@awescode.de",
+            "homepage": "https://www.awescode.de"
+        },
+        {
+            "name": "Ivan Slesarenko",
+            "email": "info@boomdraw.com",
+            "homepage": "https://boomdraw.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AwesIO\\Installer\\Console\\": "src/"
+        }
+    },
+    "require": {
+        "ext-zip": "*",
+        "guzzlehttp/guzzle": "~6.0",
+        "symfony/console": "~3.0|~4.0",
+        "symfony/filesystem": "~3.0|~4.0",
+        "symfony/process": "~3.0|~4.0"
+    },
+    "bin": [
+        "awes-io"
+    ]
+}
