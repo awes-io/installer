@@ -1,5 +1,7 @@
 # Installation
 
+[![Analytics](https://ga-beacon.appspot.com/UA-134431636-1/awes-io/installer)](https://github.com/awes-io/installer)
+
 ## Server Requirements
 
 * PHP >= 7.1.3
@@ -14,9 +16,9 @@
 
 ## Installing AwesIO
 
-AwesIO utilizes [Composer](https://getcomposer.org/) to manage its dependencies. So, before using AwesIO, make sure you have Composer installed on your machine.
+[Awes.IO](https://www.awes.io) utilizes [Composer](https://getcomposer.org/) to manage its dependencies. So, before using [Awes.IO](https://www.awes.io), make sure you have Composer installed on your machine.
 
-First, download the AwesIO installer using Composer:
+First, download the [Awes.IO](https://www.awes.io) installer using Composer:
 ```bash
 composer global require awes-io/installer
 ```
@@ -27,8 +29,8 @@ Make sure to place composer's system-wide vendor bin directory in your `$PATH` s
 - GNU / Linux Distributions: `$HOME/.config/composer/vendor/bin`
 - Windows: `%USERPROFILE%\AppData\Roaming\Composer\vendor\bin`
 
-Once installed, the `awes-io new` command will create a fresh AwesIO installation in the directory you specify. For instance, `awes-io new blog` will create a directory named `blog` containing a fresh AwesIO installation with all of AwesIO's dependencies already installed:
+Once installed, the `awes-io new` command will create a fresh [Awes.IO](https://www.awes.io) installation in the directory you specify. For instance, `awes-io new crm` will create a directory named `crm` containing a fresh [Awes.IO](https://www.awes.io) installation with all of [Awes.IO](https://www.awes.io)'s dependencies already installed:
 
 ```bash
-awes-io new blog
+awes-io new crm
 ```
