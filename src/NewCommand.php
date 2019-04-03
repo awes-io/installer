@@ -124,7 +124,7 @@ class NewCommand extends Command
     protected function getToken()
     {
         $helper = $this->getHelper('question');
-        $question = new Question("Please enter the PackageKit project token. You can get it at https://wwww.pkgkit.com/installer \n");
+        $question = new Question("Please enter the PackageKit project token. Follow the link and create an project: https://www.pkgkit.com/awes-io/create \n");
         $this->token = $helper->ask($this->input, $this->output, $question);
     }
 
