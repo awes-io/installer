@@ -1,21 +1,34 @@
-The MIT License (MIT)
+# Installation
 
-Copyright (c) Taylor Otwell
+## Server Requirements
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+* PHP >= 7.1.3
+* OpenSSL PHP Extension
+* PDO PHP Extension
+* Mbstring PHP Extension
+* Tokenizer PHP Extension
+* XML PHP Extension
+* Ctype PHP Extension
+* JSON PHP Extension
+* BCMath PHP Extension
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+## Installing AwesIO
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+AwesIO utilizes [Composer](https://getcomposer.org/) to manage its dependencies. So, before using AwesIO, make sure you have Composer installed on your machine.
+
+First, download the AwesIO installer using Composer:
+```bash
+composer global require awes-io/installer
+```
+
+Make sure to place composer's system-wide vendor bin directory in your `$PATH` so the awes-io executable can be located by your system. This directory exists in different locations based on your operating system; however, some common locations include:
+
+- macOS: `$HOME/.composer/vendor/bin`
+- GNU / Linux Distributions: `$HOME/.config/composer/vendor/bin`
+- Windows: `%USERPROFILE%\AppData\Roaming\Composer\vendor\bin`
+
+Once installed, the `awes-io new` command will create a fresh AwesIO installation in the directory you specify. For instance, `awes-io new blog` will create a directory named `blog` containing a fresh AwesIO installation with all of AwesIO's dependencies already installed:
+
+```bash
+awes-io new blog
+```
