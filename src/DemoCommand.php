@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class NewCommand extends BaseCommand
+class DemoCommand extends BaseCommand
 {
     /**
      * Configure the command options.
@@ -16,8 +16,8 @@ class NewCommand extends BaseCommand
     protected function configure()
     {
         $this
-            ->setName('new')
-            ->setDescription('Create a new AwesIO application')
+            ->setName('demo')
+            ->setDescription('Create a new AwesIO demo application')
             ->addArgument('name', InputArgument::OPTIONAL)
             ->addOption('key', 'k', InputOption::VALUE_OPTIONAL, 'Adds PackageKit CDN key to .env')
             ->addOption('token', 't', InputOption::VALUE_OPTIONAL, 'Adds PackageKit token to composer.json')
@@ -32,7 +32,7 @@ class NewCommand extends BaseCommand
      */
     protected function download($zipFile)
     {
-        $response = (new Client)->get('https://github.com/awes-io/awes-io/archive/master.zip');
+        $response = (new Client)->get('https://github.com/awes-io/demo/archive/master.zip');
 
         file_put_contents($zipFile, $response->getBody());
 

@@ -34,3 +34,9 @@ Once installed, the `awes-io new` command will create a fresh [Awes.IO](https://
 ```bash
 awes-io new crm
 ```
+
+To create demo project use `awes-io demo` command
+
+```bash
+awes-io demo crm
+```
