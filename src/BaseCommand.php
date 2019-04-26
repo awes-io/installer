@@ -120,7 +120,7 @@ class BaseCommand extends Command
     protected function getToken()
     {
         $helper = $this->getHelper('question');
-        $question = new Question("Please enter the PackageKit project token. Follow the link and create a project: https://www.pkgkit.com/awes-io/create \n");
+        $question = new Question("Please enter your API-TOKEN from Package Kit \n");
         $this->token = $helper->ask($this->input, $this->output, $question);
     }
 
@@ -130,7 +130,7 @@ class BaseCommand extends Command
     protected function getKey()
     {
         $helper = $this->getHelper('question');
-        $question = new Question("Please enter the PackageKit cdn key. Follow the link and create a project: https://www.pkgkit.com/awes-io/create \n");
+        $question = new Question("Please enter your PKGKIT_CDN_KEY. You can get it for free on https://www.pkgkit.com/awes-io/create \n");
         $this->key = $helper->ask($this->input, $this->output, $question);
     }
 
