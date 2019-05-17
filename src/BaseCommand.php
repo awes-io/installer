@@ -5,7 +5,9 @@ namespace AwesIO\Installer\Console;
 
 use ZipArchive;
 use RuntimeException;
+use GuzzleHttp\Client;
 use Symfony\Component\Process\Process;
+use GuzzleHttp\Exception\RequestException;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Question\Question;
@@ -38,6 +40,17 @@ class BaseCommand extends Command
      * @var OutputInterface
      */
     protected $output;
+
+    protected $client;
+
+    public function __construct()
+    {
+        $this->client = new Client([
+            'base_uri' => 'https://repo.pkgkit.com',
+        ]);
+
+        parent::__construct();
+    }
 
     /**
      * Execute the command.
@@ -135,23 +148,47 @@ class BaseCommand extends Command
     }
 
     /**
-     * Check PackageKit token
+     * Check PackageKit composer token
      *
      * @return bool
      */
     protected function checkToken(): bool
     {
-        return !empty($this->token);
+        if (empty($this->token)) {
+            return false;
+        }
+
+        try {
+            $response = $this->client->get('validate?token=' . $this->token);
+            return $response->getStatusCode() == 200;
+        } catch (RequestException $e) {
+            if ($e->hasResponse() && $e->getResponse()->getStatusCode() == 403) {
+                return false;
+            }
+            throw $e;
+        }
     }
 
     /**
-     * Check PackageKit key
+     * Check PackageKit cdn key
      *
      * @return bool
      */
     protected function checkKey(): bool
     {
-        return !empty($this->key);
+        if (empty($this->key)) {
+            return false;
+        }
+
+        try {
+            $response = $this->client->get('check?key=' . $this->key);
+            return $response->getStatusCode() == 200;
+        } catch (RequestException $e) {
+            if ($e->hasResponse() && $e->getResponse()->getStatusCode() == 403) {
+                return false;
+            }
+            throw $e;
+        }
     }
 
     /**

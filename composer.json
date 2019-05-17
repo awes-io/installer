@@ -14,7 +14,12 @@
             "email": "info@boomdraw.com",
             "homepage": "https://boomdraw.com",
             "role": "Developer"
-        }
+        },
+		{
+			"name": "Galymzhan Begimov",
+			"email": "begimov@gmail.com",
+			"homepage": "https://github.com/begimov"
+		}
     ],
     "autoload": {
         "psr-4": {
