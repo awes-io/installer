@@ -13,6 +13,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 class BaseCommand extends Command
@@ -123,6 +124,12 @@ class BaseCommand extends Command
         });
 
         $this->setKey($directory);
+
+        $helper = $this->getHelper('question');
+        $question = new ConfirmationQuestion('Do you want to support us by giving Github star? [Y/n]', true);
+        if ($helper->ask($input, $output, $question)) {
+            (new Process('composer thanks', $directory))->run();
+        }
 
         $output->writeln('<comment>Application ready! Build something amazing.</comment>');
     }
