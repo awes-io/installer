@@ -126,7 +126,7 @@ class BaseCommand extends Command
         $this->setKey($directory);
 
         $helper = $this->getHelper('question');
-        $question = new ConfirmationQuestion('Do you want to support us by giving Github star? [y/n]', false);
+        $question = new ConfirmationQuestion('Do you want to support us by giving Github star? [Y/n]', true);
         if ($helper->ask($input, $output, $question)) {
             (new Process('composer thanks', $directory))->run();
         }
